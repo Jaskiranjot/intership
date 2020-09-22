@@ -1,0 +1,31 @@
+/* .Calendar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
+h2{
+    color:black;
+    padding:10%;
+}
+
+form{
+    color:black;
+}
+select{
+    border-color: #92828D;
+    padding: 10px;
+    margin: 15px;
+    font-size: large;
+}
+
+.Calendar-submit input{
+    background:#92828D;
+    border-radius: 30px;
+    border:#92828D;
+    border:none;
+    padding:8px 15px;
+    font-size: large;
+    font-weight: bold;
+}
