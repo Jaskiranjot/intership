@@ -24,7 +24,7 @@ class Navbar extends Component {
                                 {item.title}
                                 </a>
                             </li>
-                        )
+                        )   
                     })}                    
                 </ul>
             </nav>
