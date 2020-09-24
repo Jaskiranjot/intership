@@ -1,4 +1,5 @@
 import React from 'react';
+import {FaFacebook, FaInstagram} from "react-icons/fa"
 import './Footer.css';
 
 //import {FaFacebook, FaInstagram} from 'react-icons/fa';
@@ -12,6 +13,8 @@ function Footer() {
                <p>Opportunties</p>
                <div className="break"></div>
                 <p>Contact Us</p>
+                <FaInstagram></FaInstagram>
+                <FaFacebook></FaFacebook>
             </div>           
           </div>
         </div>
