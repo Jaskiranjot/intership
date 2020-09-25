@@ -1,24 +1,19 @@
 import React from 'react';
 import logo from './logo.svg';
-// import './App.css';
+import './App.css';
 import SignupForm from './components/SignupForm'
 import SignupMessage from './components/SignupMessage'
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import './components/Navbar.css';
-import './components/Footer.css';
+
 
 
 function App() {
   return (
 
     <div className="App">
-
-      <Navbar />
+ 
       <SignupForm />
       {/* <SignupMessage /> */}
-      <Footer />
-     
+ 
     </div>
 
   );
