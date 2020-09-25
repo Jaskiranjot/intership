@@ -5,6 +5,8 @@ import {
   Switch,
 } from 'react-router-dom';
 import Home from './components/Home';
+import SignupForm from './components/SignupForm';
+import SignupMessage from './components/SignupMessage'
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 
@@ -28,8 +30,9 @@ function App() {
         <Route path="/forgot-password" component={ForgotPassword}></Route>
         <Route path="/change-password" component={ChangePassword}></Route>
         {/* Uncomment these when you get a signup and login component in */}
-        {/* <PublicRoute path="/signup" authenticated={authenticated} component={Signup}></PublicRoute>
-        <PublicRoute path="/login" authenticated={authenticated} component={Login}></PublicRoute> */}
+        <PublicRoute path="/signupform" component={SignupForm}></PublicRoute>
+        <PublicRoute path="/signupmessage" component={SignupMessage}></PublicRoute>
+        {/* <PublicRoute path="/login" authenticated={authenticated} component={Login}></PublicRoute> */}
         {/* This is an example of how to have your dashboard or profile or whatever only show if you're logged in */}
         {/* <PrivateRoute path="/dashboard" component={Dashboard} /> */}
       </Switch>
