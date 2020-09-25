@@ -6,13 +6,24 @@ class Maincontent extends Component {
     
     render() {
         return(
-            <row className = "Fetch-data">
-                <col className="Picture-icon">
+            <div className = "Fetch-data">
+                <div className="Picture-icon">
                     <img src=""></img>
-                </col>               
-                 <col className="Welcome-name"></col>
-                <col className="Volunteer-data"></col>                  
-            </row>
+                </div>               
+                <div className="Welcome-name"> 
+                 <h1>Welcome</h1>
+                 <p>name</p>
+                 <p>Basic Info</p>
+                 </div>
+                <div className="Volunteer-data">
+                    <h1>Volunteer Hours</h1>      
+                    <ul>
+                        <li>This Week:</li>
+                        <li>This Year:</li>
+                        <li>Lifetime:</li>
+                    </ul>            
+                    </div>
+            </div>
         )
     }
 }
