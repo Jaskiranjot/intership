@@ -1,18 +1,13 @@
-/* .Calendar {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-} */
+body{
+    background-color: cadetblue;
+    font-family: 'Poppins', sans-serif;
+  }
 h2{
     color:black;
     padding:10%;
 }
 
-form{
-    color:black;
-}
+
 select{
     border-color: #92828D;
     padding: 10px;
@@ -28,4 +23,77 @@ select{
     padding:8px 15px;
     font-size: large;
     font-weight: bold;
+}
+
+  .selecttitle{    
+    margin: 0 0 15px 0;
+  }
+
+  .datetimetitle{    
+    margin: 28px 0 5px 0;
+  }
+
+  
+  input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 15px;
+    background-color: rgb(255, 249, 249);
+    color: rgb(10, 10, 10);
+  }
+
+  
+  input[type=submit] {
+    background-color: #ddd;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 20px 0; 
+    /* cursor: pointer; */
+    border-radius: 16px;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  select {
+    width: 230px;
+    padding: 8px 38px;
+    margin:  0;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 15px;
+    background-color: white;
+    color: rgb(10, 10, 10);
+    text-align: center;
+
+  }
+  
+  input:hover, select:hover {
+    background-color:  cadetblue;
+    opacity: .5;
+    color:white;
+  }
+  .container{
+    background-color: antiquewhite;
+    border-style: hidden;
+    border-radius: 15px;
+    padding:18px;
+    margin-top:150px;
+    text-align: center;
+    box-shadow: 0 8px 6px -6px black;
+  }
+  @media screen and (max-width:900px){
+  .container{
+   width:100%;
+  } 
+  inout, select {
+    width: 230px;
+    height:50px;
+  }
 }
