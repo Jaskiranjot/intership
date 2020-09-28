@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import SignupForm from './components/SignupForm'
 import SignupMessage from './components/SignupMessage'
+import User from './components/User'
 
 
 
@@ -13,6 +14,9 @@ function App() {
  
       <SignupForm />
       {/* <SignupMessage /> */}
+
+      {/* test for firestore */}
+      {/* <User />  */}
  
     </div>
 

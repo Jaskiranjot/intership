@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 // import {MenuItems} from './MenuItems';
-import './Navbar.css';
+import logo from './sendItOn.jpg'; 
+import './SignHeader.css';
 
-class Navbar extends Component {
+class SignHeader extends Component {
     state = { clicked: false }
 
     handleclick = () => {
@@ -11,6 +12,7 @@ class Navbar extends Component {
     render() {
         return(
             <nav className="NavbarItems">
+                <img src={logo} />
                 <h1 className="navbar-logo">Send It On<i className="fab fa-react"></i>
                 </h1>
             <div className="menu-icon" onClick={this.handleClick}>
@@ -32,4 +34,4 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+export default SignHeader;

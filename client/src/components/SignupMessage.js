@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import './SignupMessage.css'
 
-import Navbar from './Navbar';
+import SignHeader from './SignHeader';
 import Footer from './Footer';
-import './Navbar.css';
-import './Footer.css';
-
 //add a router to link to the other pages, home and signin
 //send a two kinds of email: 
 ////one for the user to verify email and 
@@ -17,7 +14,7 @@ class SignupMessage extends Component {
     render() {
         return (
             <div>
-            <Navbar />
+            <SignHeader />
 
                 <div class="message">
                     <h2>Thank you, you have signed up successfully!</h2>
