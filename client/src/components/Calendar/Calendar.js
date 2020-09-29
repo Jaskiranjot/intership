@@ -21,11 +21,11 @@ var firebaseConfig = {
   messagingSenderId: "306099219422",
   appId: "1:306099219422:web:57c5c8a6ac525991898b4f"
 };
-// Initialize Firebase
+ //Initialize Firebase key senstive
 const fireBase = firebase.initializeApp(firebaseConfig);
 var gapi = window.gapi
- var CLIENT_ID=''
- var API_KEY =''
+ var CLIENT_ID='   '
+ var API_KEY ='   '
   var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"]
   var SCOPES = "https://www.googleapis.com/auth/calendar.events"
 
