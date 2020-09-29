@@ -24,8 +24,8 @@ var firebaseConfig = {
 // Initialize Firebase
 const fireBase = firebase.initializeApp(firebaseConfig);
 var gapi = window.gapi
- var CLIENT_ID='56855434936-188582seneqjev7r5u65vighghim7q4q.apps.googleusercontent.com'
- var API_KEY ='AIzaSyA0JFaoloiRefilEvAK-DT5pxppsK_om5c'
+ var CLIENT_ID=''
+ var API_KEY =''
   var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"]
   var SCOPES = "https://www.googleapis.com/auth/calendar.events"
 
