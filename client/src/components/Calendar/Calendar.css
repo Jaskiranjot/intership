@@ -17,12 +17,23 @@ select{
 
 .Calendar-submit input{
     background:#92828D;
-    border-radius: 30px;
+    border-radius: 10px;
     border:#92828D;
     border:none;
     padding:8px 15px;
     font-size: large;
     font-weight: bold;
+    cursor: pointer;
+    margin: 40px 30px 40px 150px;
+    /* height: 35px;
+    width: 160px;
+    font-size: 18px;
+    border-width: 1.5px;
+    padding: 0 50px 0 50px;
+    background-color: #91838C;
+    border: none;
+    outline: none;
+    color: white; */
 }
 
   .selecttitle{    
@@ -75,7 +86,7 @@ select{
   }
   
   input:hover, select:hover {
-    background-color:  cadetblue;
+    background-color: #5F9EA0;
     opacity: .5;
     color:white;
   }
@@ -89,7 +100,7 @@ select{
     text-align: center;
     box-shadow: 0 8px 6px -6px black;
   }
-  @media screen and (max-width:900px){
+  @media screen and (max-width:800px){
   .container{
    width:100%;
   } 
