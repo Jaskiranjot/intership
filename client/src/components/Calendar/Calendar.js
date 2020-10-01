@@ -42,11 +42,8 @@ pickDatetime(event) {this.setState({dateTime: event})}
 parseDateTime(datetime){
    var datetime1 = new Date(Date.parse(datetime))
   var datetime2 =new Date(Date.parse(datetime)+1800000)
-  alert(datetime)
    var date1 = datetime1.getUTCFullYear()+'-'+(datetime1.getUTCMonth()+1)+'-' +datetime1.getUTCDate()+'T'+datetime1.getUTCHours()+':'+datetime1.getUTCMinutes()+':00-00:00'
   var date2 = datetime2.getUTCFullYear()+'-'+(datetime2.getUTCMonth()+1)+'-' +datetime2.getUTCDate()+'T'+datetime2.getUTCHours()+':'+datetime2.getUTCMinutes()+':00-00:00'
-  console.log(date1)
-  console.log(datetime1.getUTCMonth())
   return {date1:date1, date2:date2}
   }
   
@@ -92,7 +89,7 @@ parseDateTime(datetime){
 // }) //firebase get stop
  var pickeddate1=this.parseDateTime(this.state.dateTime).date1
  var pickeddate2=this.parseDateTime(this.state.dateTime).date2
-
+console.log('this is'+(new Date()).toString())
     console.log('pickeddate1:'+pickeddate1)
     console.log('pickeddate2:'+pickeddate2)
   
@@ -156,7 +153,6 @@ render() {
                     <h5 className ='datetimetitle'>Select a time:</h5>
                     <DatePicker
                         onChange={ this.pickDatetime }
-                        // value={this.state.datetime}
                         selected={ this.state.dateTime }                        
                         showTimeSelect
                         timeFormat="HH:mm"
@@ -165,7 +161,7 @@ render() {
                         dateFormat="MMM d, yyyy h:mm aa"
                         minDate={new Date()}
                         maxDate={addDays(new Date(), 777)}
-                        // timeMin= {(new Date()).toISOString()}
+                        timeMin= {(new Date()).toISOString()}
                     />                 
                     <div className = "Calendar-submit" >
                         <input type="submit" value="Submit"/>
