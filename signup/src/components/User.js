@@ -2,7 +2,7 @@
 //nice tutorial: https://medium.com/get-it-working/get-googles-firestore-working-with-react-c78f198d2364 
 
 import React, { Component } from 'react';
-import  { db }  from '../firebase';
+import  { auth, db }  from '../firebase';
 
 class User extends Component {
 
@@ -24,15 +24,18 @@ class User extends Component {
         });
     }
 
+
     //send data to our Firestore database. We’ll use an arrow function to avoid having to 'bind' this to the function in the constructor / if that doesn’t make sense, read this (https://reactjs.org/docs/faq-functions.html#why-is-binding-necessary-at-all)
     addUser = e => {
         e.preventDefault(); 
+        // auth.createUserWithEmailAndPassword(this.state.email, this.state.password);
         // const db = firebase.firestore();
         db.settings({
           timestampsInSnapshots: true
         });
 
         const userRef = db.collection("test-jiyoung").add({
+        // firebase.firestore().collection("test-jiyoung").doc(this.state.fullname).set({
           fullname: this.state.fullname,
           email: this.state.email,
           booking: {
@@ -59,25 +62,35 @@ class User extends Component {
       //.add() method is submitting our data object with the users full name and email taken from our updated state
       //2. After the user submits the form, the state is updated to an empty string to remove the user input across both fields
 
+      storeToAuth = e => {
+        e.preventDefault();
+        auth.createUserWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
+          console.log(u);
+        }).catch((err) => {
+          console.log(err);
+        })
+      }
+
+
     render() {
         return (
             //call a function which does the magic when the form is submitted: onSubmit={this.addUser}
             <form onSubmit={this.addUser}> 
-            <input
-                type="text"
-                name="fullname"
-                placeholder="Full name"
-                onChange={this.updateInput}
-                value={this.state.fullname} //assign the data (in state) to our object value which get’s passed into Firestore
-            />
-            <input
-                type="email"
-                name="email"
-                placeholder="Email address"
-                onChange={this.updateInput}
-                value={this.state.email}
-            />
-            <button type="submit">Submit</button>
+              <input
+                  type="text"
+                  name="fullname"
+                  placeholder="Full name"
+                  onChange={this.updateInput}
+                  value={this.state.fullname} //assign the data (in state) to our object value which get’s passed into Firestore
+              />
+              <input
+                  type="email"
+                  name="email"
+                  placeholder="Email address"
+                  onChange={this.updateInput}
+                  value={this.state.email}
+              />
+              <button type="submit">Submit</button>
             </form>
             );
         }

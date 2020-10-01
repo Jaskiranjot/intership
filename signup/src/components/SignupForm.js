@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
-import  { db }  from '../firebase';
+import  { auth, db }  from '../firebase';
 import './SignupForm.css'
 // import { MdStar } from "react-icons/md";
 import SignHeader from './SignHeader';
 import Footer from './Footer';
+
+// import { signupAuth } from '../auth';
+// import { Link } from 'react-router-dom';
 
 
 class SignupForm extends Component {
@@ -41,7 +44,7 @@ handleSubmit = (event) => {
         alert(`${this.state.firstname} ${this.state.lastname}, you have registered successfully!!`)
         //should change the page to the SignupMessage page
         console.log(this.state);  
-            
+                    
         this.setState({  //clear the form input
             firstname: "",
             lastname: "",
@@ -51,47 +54,65 @@ handleSubmit = (event) => {
             position: "",
             country: "",
             city: "",
-            timezone: "",
+            timezone: ""
         })
+
+        event.preventDefault();
+        //add to firebase authentication
+        auth.createUserWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
+            console.log(u);
+          }).catch((err) => {
+            console.log(err);
+          })
+        
+        // const signupAuth = auth().createUserWithEmailAndPassword(email, password);
+        // const { email, password } = this.state;   
+        // auth().createUserWithEmailAndPassword(this.state.email, this.state.password); 
+        // alert(1);
+        // const { email, password } = this.state;
+        // auth.createUserWithEmailAndPassword(email, password);
+        // alert(2);
+
+        //store the data(user input) to firebase firestore
+        db.settings({
+            timestampsInSnapshots: true
+        });
+        //const userRef = db.collection("users").add({
+        const userRef = db.collection("users").doc((this.state.firstname)+`-`+(this.state.lastname)+Date.now()).set({    
+            firstname: this.state.firstname,
+            lastname: this.state.lastname,
+            email: this.state.email,
+            password: this.state.password,
+            confirmpassword: this.state.confirmpassword,
+            position: this.state.position,
+            country: this.state.country,
+            city: this.state.city,
+            timezone: this.state.timezone,
+            datesignup: new Date(),
+            datenow: Date.now(),
+            calendar: {
+                computer: "",
+                datetime: ""
+            },
+            history: {
+                    number: "",
+                    date: "",
+                    mentortime: "",
+                    mentee: "",
+                    menteecountry: "",
+                    discription: ""
+            },
+            voluteerhour: {
+                week: "",
+                year: "",
+                lifetime: ""
+            } 
+        });
+
     } else {
-        alert("Your passwords don't match. Please match your passwords and confirm passwords");
+        alert("Your passwords don't match. Please match your passwords and confirm passwords.");
     } 
-
-    event.preventDefault();
-    db.settings({
-        timestampsInSnapshots: true
-      });
-      const userRef = db.collection("users").add({
-        firstname: this.state.firstname,
-        lastname: this.state.lastname,
-        email: this.state.email,
-        password: this.state.password,
-        confirmpassword: this.state.confirmpassword,
-        position: this.state.position,
-        country: this.state.country,
-        city: this.state.city,
-        timezone: this.state.timezone,
-        calendar: {
-            computer: "",
-            datetime: ""
-        },
-        history: {
-                number: {
-                date: "",
-                mentortime: "",
-                mentee: "",
-                menteecountry: "",
-                discription: ""
-            }
-        },
-        voluteerhour: {
-            week: "",
-            year: "",
-            lifetime: ""
-        }
-
-      });                  
-    }
+}
 
 
 //handle cancel button
@@ -140,37 +161,38 @@ handleCancel = (event) => {
                     <label class="name">Position you are applying for:</label><br />
                     <select name="position" onChange={this.updateInput} value={this.state.position} required>
                         <option defaultValue></option>
-                        <option value="Mentor">Mentor</option>
-                        <option value="Representative">Representative</option>
-                        <option value="Executive">Executive</option>
+                        <option>Mentor</option>
+                        <option>Representative</option>
+                        <option>Executive</option>
                     </select><br />
                     
                     <div id="threeselect">
                         <label class="countryname">Country</label><br />
                         <select class="countrybox" name="country" onChange={this.updateInput} value={this.state.country} required>
                             <option defaultValue></option>
-                            <option value="Canada">Canada</option>
-                            <option value="United States">United States</option>
-                            <option value="Korea">Korea</option>
+                            <option>Canada</option>
+                            <option>United States</option>
+                            <option>Korea</option>
                         </select><br />
                         <label class="cityname">City</label><br />
                         <select class="citybox" name="city" onChange={this.updateInput} value={this.state.city} required>
                             <option defaultValue></option>
-                            <option value="Calgary">Calgary</option>
-                            <option value="New York">New York</option>
-                            <option value="Seoul">Seoul</option>
+                            <option>Calgary</option>
+                            <option>New York</option>
+                            <option>Seoul</option>
                         </select><br />
                         <label class="timezonename">Timezone</label><br />
                         <select class="timezonebox" name="timezone" onChange={this.updateInput} value={this.state.timezone}required>
                             <option defaultValue></option>
-                            <option value="Calgary">MDT(UTC -6) 3:00pm</option>
-                            <option value="New York">EDT(UTC -4) 5:00pm</option>
-                            <option value="Seoul">KST(UTC +9) 6:00am</option>
+                            <option>MDT(UTC -6) 3:00pm</option>
+                            <option>EDT(UTC -4) 5:00pm</option>
+                            <option>KST(UTC +9) 6:00am</option>
                         </select><br /><br />
                     </div>
 
-                    <input class="btnsignup" type="submit" value="Sign up" />
-                    <input class="btncancel" type="submit" value="Cancel" onClick={this.handleCancel} />
+                    <button class="btnsignup">Sign up</button>
+                    <button class="btncancel" onClick={this.handleCancel}>Cancel</button>
+
                 </form>
 
             </div>

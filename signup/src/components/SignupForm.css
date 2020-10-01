@@ -166,13 +166,12 @@ select {
 /* buttons */
 .btnsignup {
   cursor: pointer;
-  margin: 40px 30px 40px 145px;
+  margin: 40px 30px 40px 165px;
   height: 35px;
   width: 160px;
   font-size: 18px;
   border-radius: 5px;
   border-width: 1.5px;
-  padding-left: 10px;
   background-color: #91838C;
   border: none;
   outline: none;
@@ -192,7 +191,6 @@ select {
   font-size: 18px;
   border-radius: 5px;
   border-width: 1.5px;
-  padding-left: 10px;
   background-color: white;
   outline: none;
   
