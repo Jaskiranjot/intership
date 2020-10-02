@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import './SignupMessage.css'
+import React, { Component } from 'react';
+import './SignupMessage.css';
 
 import SignHeader from './SignHeader';
 import Footer from './Footer';
@@ -16,11 +16,11 @@ class SignupMessage extends Component {
             <div>
             <SignHeader />
 
-                <div class="message">
+                <div className="message">
                     <h2>Thank you, you have signed up successfully!</h2>
                     <h2>Please check your email to verify your email address.</h2>
                 </div>
-                <div class="link">
+                <div className="link">
                     <h3>Go back to home</h3>
                     <h3>Go back to signin</h3>
                 </div>
@@ -32,4 +32,4 @@ class SignupMessage extends Component {
     }
 }
 
-export default SignupMessage
+export default SignupMessage;

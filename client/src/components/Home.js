@@ -1,11 +1,15 @@
 import React from 'react';
 import ExampleComponentThatReadsDataFromFirebase from './ExampleComponentThatReadsDataFromFirebase';
 
+import SignupForm from './SignupForm';
+
 function Home() {
   return (
     <div className="App">
-      SEND IT ON
-      <ExampleComponentThatReadsDataFromFirebase />
+
+      <SignupForm />
+      {/* SEND IT ON
+      <ExampleComponentThatReadsDataFromFirebase /> */}
     </div>
   );
 }

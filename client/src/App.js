@@ -21,9 +21,10 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={Home}></Route>
+        <PublicRoute path="/signupform" component={SignupForm}></PublicRoute>
+        <PublicRoute path="/signupmessage" component={SignupMessage}></PublicRoute>
         {/* Uncomment these when you get a signup and login component in */}
-        <PublicRoute path="/signupform" authenticated={authenticated} component={SignupForm}></PublicRoute>
-        <PublicRoute path="/signupmessage" authenticated={authenticated} component={SignupMessage}></PublicRoute>
+        {/* <PublicRoute path="/signup" authenticated={authenticated} component={Signup}></PublicRoute> */}
         {/* <PublicRoute path="/login" authenticated={authenticated} component={Login}></PublicRoute> */}
         {/* This is an example of how to have your dashboard or profile or whatever only show if you're logged in */}
         {/* <PrivateRoute path="/dashboard" component={Dashboard} /> */}
