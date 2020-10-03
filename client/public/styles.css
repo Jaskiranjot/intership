@@ -7,6 +7,7 @@
     width: 350px;
     margin: 0 auto;
     padding-top: 150px;
+    padding-bottom: 50px;
     font-size: 20px;
     text-align: center;
 
@@ -20,7 +21,7 @@
 
 .sign-in .form-field input {
     display: block;
-    width: 90%;
+    width: 100%;
     border-radius: 5px;
     padding-left: 10px;
     padding-right: 20px;
@@ -39,6 +40,7 @@
     color: black;
     text-align: right;
     padding: 20px 5px;
+    font-size: 18px
 }
 
 .sign-in .link:hover {
@@ -49,9 +51,10 @@
     /* background-color: blue; */
     width:400px;
     margin: 0 auto;
-    padding-top: 200px;
+    padding-top: 150px;
+    padding-bottom: 100px;
     font-size: 20px;
-    text-align: center;
+    text-align: center
 }
 
 .forgot-password .form-field {
@@ -71,22 +74,24 @@
     font-size: 16px
 }
 
-p {
+h4 {
     /* background-color: red; */
     width: 600px;
     font-size: 18px;
     font-family: Poppins, sans-serif;
     margin: 50px auto;
-    margin-left: -70px
+    margin-left: -70px;
+    color: black
 }
 
 .change-password {
     /* background-color: red; */
     width:300px;
     margin: 0 auto;
-    padding-top: 200px;
+    padding-top: 150px;
+    padding-bottom: 170px;
     font-size: 20px;
-    text-align: center;
+    text-align: center
 }
 
 .change-password .form-field {
@@ -97,7 +102,7 @@ p {
 
 .change-password .form-field input {
     display: block;
-    width: 89%;
+    width: 100%;
     border-radius: 5px;
     padding-left: 10px;
     padding-right: 20px;
@@ -107,8 +112,12 @@ p {
 }
 
 .back-to-sign-in {
-    /* background-color: yellow; */
+    background-color: yellow;
 
+}
+
+.user-not-found {
+    color: red
 }
 
 button {
