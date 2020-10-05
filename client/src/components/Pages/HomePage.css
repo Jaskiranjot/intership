@@ -1,0 +1,29 @@
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-around;
+  margin-bottom: 80px;
+}
+.flex-container > div {
+    background-color: #f1f1f1;
+    width: auto;
+    margin: 10px;
+    text-align: center;
+    line-height: 10px;
+    font-size: 20px;
+    
+  }
+  
+img {
+    height: 100px;
+    width: 80px;
+}
+p{
+    color: black;
+    text-align: center;
+   
+}
+.break {
+  word-break: break-all;
+  }

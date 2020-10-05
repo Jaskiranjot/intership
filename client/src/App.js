@@ -5,6 +5,10 @@ import {
   Switch,
 } from 'react-router-dom';
 import Home from './components/Home';
+import HomePage from './components/Pages/HomePage';
+import ProfileEdit from './components/Pages/ProfileEdit';
+import Resources from './components/Pages/Resources';
+import Hours from './components/Pages/Hours'
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 
@@ -18,7 +22,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={Home}></Route>
+        <Route exact path="/" component={Hours}></Route>
         {/* Uncomment these when you get a signup and login component in */}
         {/* <PublicRoute path="/signup" authenticated={authenticated} component={Signup}></PublicRoute>
         <PublicRoute path="/login" authenticated={authenticated} component={Login}></PublicRoute> */}

@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar/Navbar';
-import {Home} from './components/Pages/HomePage';
+import Home from './components/Pages/HomePage';
 import Footer from './components/Footer/Footer';
 
 import './App.css';
@@ -8,7 +8,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <Navbar /> 
       <Home />
       <Footer />
     </div>

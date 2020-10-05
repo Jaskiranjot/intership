@@ -1,0 +1,21 @@
+h1 {
+    color: blue; 
+    text-align: center;
+}
+
+p {
+    text-align: right;
+}
+
+.flex-container {
+    display: flex; 
+    align-items: stretch; 
+    justify-content: space-around;
+}
+
+#resources {
+    border-collapse: collapse; 
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 8px;
+}

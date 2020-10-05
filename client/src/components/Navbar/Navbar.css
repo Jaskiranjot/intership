@@ -9,29 +9,31 @@
 
 .navbar-logo {
     color: white;
-    margin-left: 20px;
+    margin-left: 5px;
     cursor: pointer;
+    display: inline;
 }
 
-.fa-react {
+.logo {
     margin-left: 0.5rem;
-    font-size: 1.6rem;
+    font-size: 10px;
+    
 }
 
 .nav-menu {
     display:grid;
     grid-template-columns: repeat(5,120px);
-    grid-gap:10px;
+    grid-gap:5px;
     list-style: none;
     text-align: center;
     width: 70vw;
     justify-content: left;
-    margin-right: 2rem;
+    margin-right: 5px;
 }
 .nav-links {
     color: white;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: 10px 5px;
 }
 
 .nav-links:hover {
@@ -39,3 +41,4 @@
     border-radius: 4px;
     transition: all 0.2s ease-out;
 }
+

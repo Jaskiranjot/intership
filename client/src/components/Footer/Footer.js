@@ -1,24 +1,24 @@
 import React from 'react';
-import {FaFacebook, FaInstagram} from "react-icons/fa"
+//import {FaFacebook, FaInstagram} from '@fortawesome/react-fontawesome';
+
 import './Footer.css';
 
-function Footer() {
+class Footer extends React.Component {
+
+render(){
   return (
-    <div className='footer-container'>     
-      <div className='footer-links'>       
+    <div className='footer-container'>               
         
            <div className='bottom-text'>
-               <p>Opportunties</p>
-               <div className="break"></div>
-                <p>Contact Us</p>
-                </div>
-                <div className="social-icons">
-                <li><a href="https://wwww.intsagram.com"><FaInstagram></FaInstagram></a></li>
-                <li><a href="https://www.facebook.com"><FaFacebook></FaFacebook></a></li>
-            </div>           
+                <p className="contact">Contact Us</p>
+                </div> 
+            <div className="social-icons">
+  <a href="https://www.instagram.com/senditon.international/?fbclid=IwAR1VaYUQ7m8Jh1P09vnLxdFF8XKHCJ-X8kBPS6dSLVIbFG4E6aDMNh4tuzk"><i class="fa fa-instagram"></i></a>  
+                <a href="https://www.facebook.com/int.senditon/?modal=admin_todo_tour"><i class="fa fa-facebook"></i></a> 
+            </div>          
           </div>
-        </div>
- );
-}
+       )
+  }
+};
 
 export default Footer;

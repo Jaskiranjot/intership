@@ -1,0 +1,17 @@
+.history {
+    color:blue;
+    text-align: center;
+}
+
+.flex-container {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+}
+
+#resources, td {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid black;
+    text-align: center;
+}

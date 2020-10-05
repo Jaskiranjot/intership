@@ -1,34 +1,60 @@
-/*
-import React from 'react';
-import Navbar from './components/Navbar/Navbar';
-import Footer from './components/Footer/Footer';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <header></header>
+    <!-- home page view -->
+    <section>
+        <div class="flex-container" style="display: flex; align-items: stretch; justify-content: space-around;">
+            <div class="photo">
+                <img src="./../public/sendItOn.jpg" style= " height: 50px; width= 35px">
+                <p>Profile </p><a href="#">Edit</a>
+            </div>
+            <div class="homepage">
+                <h1 style="color:blue;"><em>Welcome</em></h1>              
+                <p>Susan True</p>
+                <p>Environmentalist</p>
+                <p>Calgary</p>
+            </div>
+            <div>
+                <h2>Volunter Hours</h2>
+                <p>This week:</p>
+                <p>This Year:</p>
+                <p>Lifetime:</p>
+            </div>
+          </div>
+    </section>
 
-export default () => {
-    return (
-        <div>
-        <Navbar />
-        <div className="flex-container" style="display: flex; align-items: stretch; justify-content: space-around;">
-            <div className="photo">
-                <img src="./../public/sendItOn.jpg" style= " height: 50px; width :35px"></img>
+      <!-- profile edit view -->
+      <section>
+        <div class="flex-container" style="display: flex; align-items: stretch; justify-content: space-around;">
+            <div class="photo">
+                <img src="./../public/sendItOn.jpg" style= " height: 50px; width :35px">
                 <p>Susan True</p>
                 <p>Profile </p> <a href="#">Edit</a>
                 <p>Environmentalist</p>
                 <p>Calgary</p>
             </div>
-            <div className="editprofile">
+            <div class="editprofile">
                 <h1 style="color :blue;"><em>Profile</em></h1>
-                <form>
-                    <label for="fname">First name:</label>
-                    <label for="lname">Last name:</label>
-                    <select name="country" className="countries" id="countryId">
+                <form action="/action_page.php">
+                    <label for="fname">First name:</label><br>
+                    <label for="lname">Last name:</label><br>
+                    <select name="country" class="countries" id="countryId">
                         <option value="">Select Country</option>
-                    </select>
-                    <select name="state" className="states" id="stateId">
+                    </select><br>
+                    <select name="state" class="states" id="stateId">
                         <option value="">Select State</option>
-                    </select>
-                    <select name="city" className="cities" id="cityId">
+                    </select><br>
+                    <select name="city" class="cities" id="cityId">
                         <option value="">Select City</option>
-                    </select>
+                    </select><br>
                     
                     <select>
                         <option timeZoneId="1" gmtAdjustment="GMT-12:00" useDaylightTime="0" value="-12">(GMT-12:00) International Date Line West</option>
@@ -113,17 +139,90 @@ export default () => {
                         <option timeZoneId="80" gmtAdjustment="GMT+12:00" useDaylightTime="1" value="12">(GMT+12:00) Auckland, Wellington</option>
                         <option timeZoneId="81" gmtAdjustment="GMT+12:00" useDaylightTime="0" value="12">(GMT+12:00) Fiji, Kamchatka, Marshall Is.</option>
                         <option timeZoneId="82" gmtAdjustment="GMT+13:00" useDaylightTime="0" value="13">(GMT+13:00) Nuku'alofa</option>
-                    </select>
+                    </select>	<br>
 
                     <label for="email">Email:</label>
-                    <input type="email" id="email"></input>
-                    <input type="submit" value="Submit"></input>
+                    <input type="email" id="email"><br><br>
+                    <input type="submit" value="Submit">
                   </form>
             </div>
-           </div>
-           <Footer />
-    </div>   
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
-    <script src="//geodata.solutions/includes/countrystatecity.js"></script>
-    )
-} 
+            
+          </div>
+    </section>
+
+
+      <!-- resources page view -->
+      <section>
+        
+        <h1 style="color: blue; text-align: center;"><em>Resources</em></h1>
+        <h1 style="text-align: right;"><em>Susan True</em></h1>
+        <h1 style="text-align: right;"><em>Total Hours:</em></h1>
+        
+        <div class="flex-container" style="display: flex; align-items: stretch; justify-content: space-around;">
+        <table id="resorces" style=" border-collapse: collapse; width: 100%; border: 1px solid #ddd;
+        padding: 8px;">
+            <tr>
+              <th>Topic</th>
+              <th>Pdf</th>
+              <th>Videoes</th>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            </table>
+          </div>
+      </section>
+
+
+        <!-- opportunities page view -->
+
+         <!-- History of hours page view -->
+         <section>
+            
+                
+                <div class="history">
+                    <h1 style="color:blue; text-align: center;"><em>Hostory of Hours</em></h1>                       
+                </div>
+                
+                <div class="flex-container" style="display: flex; align-items: stretch; justify-content: space-around;">
+                    <table id="resorces" style=" border-collapse: collapse; width: 100%; border: 1px solid #ddd;
+                    padding: 8px;">
+                        <tr>
+                          <th>SNo.</th>
+                          <th >Date</th>
+                          <th>Mentor</th>
+                          <th>Mentee</th>
+                          <th>Country</th>
+                          <th>Topic</th>
+                          <th>Description</th>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>                       
+                        </table>
+                </div>
+              
+        </section>
+
+
+
+
+    <footer></footer>
+</body>
+    
+
+
+</html>
