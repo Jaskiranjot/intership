@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import Navbar from './../Navbar/Navbar';
 import Footer from './../Footer/Footer';
 import ProfileEdit from './ProfileEdit';
-import './HomePage.css'
+//import './HomePage.css'
 import { db, auth } from './../../firebase';
 
 
