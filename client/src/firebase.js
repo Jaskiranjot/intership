@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/db';
 import 'firebase/firestore';
 
 // this is okay to expose because these are all client side anyway - there is NO way to hide these from the user
@@ -18,3 +19,4 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
 export const db = firebase.firestore();
+
