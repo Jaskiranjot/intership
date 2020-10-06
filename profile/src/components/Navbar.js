@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'
-import {MenuItems} from './MenuItems';
+// import {MenuItems} from './MenuItems';
 import './Navbar.css';
-import {image} from './../../components/sendItOn.jpg'
 
 class Navbar extends Component {
     state = { clicked: false }
@@ -13,10 +11,12 @@ class Navbar extends Component {
     render() {
         return(
             <nav className="NavbarItems">
-                <p className="navbar-logo">
-                <img src ='{image}'></img><i className="logo"></i></p>
-                <p>Send It On</p>                  
-                <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
+                <h1 className="navbar-logo">Send It On<i className="fab fa-react"></i>
+                </h1>
+            <div className="menu-icon" onClick={this.handleClick}>
+                    <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
+                </div>
+                {/* <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
                     {MenuItems.map((item, index) => {
                         return (
                             <li key={index}>
@@ -26,13 +26,8 @@ class Navbar extends Component {
                             </li>
                         )   
                     })}                    
-                </ul>
-                <Link to="/Signin.js">
-                <p color="white" className="primary-btn">
-                  <span>Logout</span>
-                </p>
-              </Link>
-            </nav >
+                </ul> */}
+            </nav>
         )
     }
 }

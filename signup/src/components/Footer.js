@@ -6,7 +6,8 @@ import './Footer.css';
 function Footer() {
   return (
     <div className='footer-container'>     
-      <div className='footer-links'>              
+      <div className='footer-links'>       
+        
            <div className='social-icons'>
                <p>Opportunties</p>
                <div className="break"></div>
