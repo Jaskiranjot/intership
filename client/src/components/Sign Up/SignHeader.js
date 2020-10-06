@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 // import {MenuItems} from './MenuItems';
-import logo from './sendItOn.jpg'; 
+import logo from '../sendItOn.jpg';
 import './SignHeader.css';
 
 class SignHeader extends Component {

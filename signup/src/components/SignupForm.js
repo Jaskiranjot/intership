@@ -7,7 +7,7 @@ import Footer from './Footer';
 
 // import { signupAuth } from '../auth';
 // import { Link } from 'react-router-dom';
-
+import TimezonePicker from 'react-timezone-picker';
 
 class SignupForm extends Component {
     constructor() {
@@ -188,6 +188,8 @@ handleCancel = (event) => {
                             <option>EDT(UTC -4) 5:00pm</option>
                             <option>KST(UTC +9) 6:00am</option>
                         </select><br /><br />
+                        
+
                     </div>
 
                     <button class="btnsignup">Sign up</button>

@@ -13,8 +13,8 @@ function PublicRoute({ component: Component, authenticated, ...rest }) {
       render={(props) => authenticated === false
         ? <Component {...props} />
         // : <Redirect to='/home' />}
-        : <Redirect to='/signupmessage' />}
-    />
+        : <Redirect to='/SignupMessage' />}
+     />
   );
 }
 

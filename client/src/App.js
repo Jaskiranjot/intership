@@ -5,8 +5,8 @@ import {
   Switch,
 } from 'react-router-dom';
 import Home from './components/Home';
-import SignupForm from './components/SignupForm';
-import SignupMessage from './components/SignupMessage'
+import SignupForm from './components/Sign Up/SignupForm';
+import SignupMessage from './components/Sign Up/SignupMessage'
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 
