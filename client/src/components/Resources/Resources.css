@@ -1,0 +1,22 @@
+.resources{
+    background:white;
+    height:100vh; 
+    margin-top: 0px;
+    padding-top: 0;
+}
+h1{
+    color: blue; 
+    text-align: center;
+}
+
+.flex-container{
+    display: flex; 
+    align-items: stretch; 
+    justify-content: space-around
+}
+#resources{
+    border-collapse: collapse; 
+    width: 100%; 
+    border: 1px solid #ddd;
+    padding: 8px;
+}

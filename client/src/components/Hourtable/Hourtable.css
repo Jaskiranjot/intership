@@ -1,0 +1,18 @@
+.hourtable{      
+    background:white;
+    height:100vh; 
+    margin-top: 0px;
+    padding-top: 0;
+    
+}
+
+.hourtable h2{
+    float:center;
+}
+.hourtable .userinfo{
+    float:right;
+}
+.hourtable .table{
+    height:100vh;
+    margin:10px;
+}

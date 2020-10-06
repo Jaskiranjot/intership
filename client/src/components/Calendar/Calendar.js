@@ -4,38 +4,33 @@ import "react-datepicker/dist/react-datepicker.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import addDays from 'date-fns/addDays';
 import './Calendar.css';
-import {db} from "../firebase.js";
-import Navbar from '../Navbar/Navbar';
+import dbref from '../Firebaseref.js'
+import Navbar from '../Navbarinner/Navbarinner';
 import Footer from '../Footer/Footer';
-import Pickcountry from './Pickcountry';
-
+import { CountryDropdown, CountryRegionData } from 'react-country-region-selector'; 
 var gapi = window.gapi
  var CLIENT_ID=''
  var API_KEY =''
   var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"]
   var SCOPES = "https://www.googleapis.com/auth/calendar.events"
  
-  var userkey ='Jaskiran-Dhillon1601683758187'
-
-//var userkey ='Megan-Xu1601510866653'
 class Calendar extends Component{
  constructor(props){
      super(props);
-     this.state = {computer:'Pick Computer', dateTime: new Date(),email: [],name:[],menteename:'',menteecountry:''};
+     this.state = {computer:'Pick Computer', dateTime: new Date(),email: [],name:[],menteename:'',country:'',description:''};//
      this.pickComputer = this.pickComputer.bind(this); 
      this.pickDatetime = this.pickDatetime.bind(this);
      this.handleSubmit = this.handleSubmit.bind(this);   
      this.parseDateTime = this.parseDateTime.bind(this); 
-     this.updateInput = this.updateInput.bind(this);
+     this.updatename = this.updatename.bind(this);
+     this.description = this.description.bind(this);
  }
         
 pickComputer(event) {this.setState({computer: event.target.value})}
 pickDatetime(event) {this.setState({dateTime: event})}
-updateInput (event) {
-  this.setState({[event.target.name]: event.target.value});
-  }  
-  
-
+updatename (event) {this.setState({menteename: event.target.value});}
+selectCountry (event) {this.setState({country:event});}  
+description(event) {this.setState({description: event.target.value});}
   
 parseDateTime(datetime){
    var datetime1 = new Date(Date.parse(datetime))
@@ -49,8 +44,8 @@ parseDateTime(datetime){
     try {
       const email = [];
       const name=[];
-        db.collection('megantestfolder').doc(userkey)
-        .get().then((doc) => {
+        //db.collection('megantestfolder').doc(userkey)
+        dbref.get().then((doc) => {
           if (doc.exists) {
             const data = doc.data();
             email.push(data.email);
@@ -66,7 +61,7 @@ parseDateTime(datetime){
  handleSubmit(event) {
     //this.setState({computer: "",dateTime: "", test: "",}) cannot set empty, why?
     event.preventDefault();
-   db.collection('megantestfolder').doc(userkey).collection('VolunteerHours')
+   dbref().collection('VolunteerHours')
    .doc(`${Date.now()}`)
    .set({
     SNo:'',
@@ -74,8 +69,8 @@ parseDateTime(datetime){
     Computer:this.state.computer, 
     Mentee: this.state.menteename,
     MentorTime:'30 mins',
-    MenteeCountry:this.state.menteecountry,
-    Description:`You have booked ${this.state.computer} on ${this.state.dateTime}`
+    MenteeCountry:this.state.country,
+    Description:this.state.description
    });
 //start api
    gapi.load('client:auth2', () => {
@@ -134,80 +129,61 @@ parseDateTime(datetime){
 
 render() {
     return (            
-      <div>                  
+      <div className='calendar'>                  
         <Navbar/>
         <div className = "container">          
-           <div className = "row">                     
-                <form className = "col-12 col-sm-12 col-md-4 form-group" onSubmit = {this.handleSubmit}>
-                    <h2>Please select a computer and a time</h2> 
-                    <div id="bothname">                        
-                        <input class="lastnamebox" type="text" name="lastname" onChange={this.updateInput} value={this.state.menteename} placeholder="Mentee's Name" required /><br />
-                        <Pickcountry class="lastnamebox" type="text" name="lastname" onChange={this.updateInput} value={this.state.menteecountry} placeholder="Mentee's Country" required /><br />
-                    </div>               
-                    <h5 className ='selecttitle'>Pick a Computer:</h5>    
-                    <select value = {this.state.value} name='computer' onChange = {this.pickComputer} > 
-                        < option value = "Computer 1" > Pick Computer </option>           
-                        < option value = "Computer 1" > Computer 1 </option> 
-                        < option value = "Computer 2" > Computer 2 </option> 
-                        < option value = "Computer 3" > Computer 3 </option> 
-                    </select> 
-                 
-                    <h5 className ='datetimetitle'>Select a time:</h5>
-                    <DatePicker
-                        onChange={ this.pickDatetime }
-                        selected={ this.state.dateTime }                        
-                        showTimeSelect
-                        timeFormat="HH:mm"
-                        timeIntervals={30}
-                        timeCaption="time"
-                        dateFormat="MMM d, yyyy h:mm aa"
-                        minDate={new Date()}
-                        maxDate={addDays(new Date(), 777)}
-                    />                 
-                    <div className = "Calendar-submit" >
-                        <input type="submit" value="Submit"/>
-                    </div>                
+          <div className = "row">                     
+            <form className = "col-12 col-sm-12 col-md-4 form-group" onSubmit = {this.handleSubmit}>
+              <h2>Please fill in the form</h2> 
+              <div>  
+                <h5 className ='datetimetitle'>Mentee's Name:</h5>                      
+                <input type="text" className ='inputdata' onChange={this.updatename}  placeholder="Name ..."/>
+              </div>  <br/>
+              <div>
+                <h5 className ='datetimetitle'>Mentee's Country:</h5>
+                <div>
+                  <CountryDropdown
+                    value={this.state.country}
+                    onChange={this.selectCountry.bind(this)}
+                    priorityOptions={['CA', 'CN','KR','IN','UA','US']} />
+                </div>
+              </div><br/>   
+              <div>          
+                <h5 className ='datetimetitle'>Pick a Computer:</h5>    
+                <select className ='inputdata' value = {this.state.value} name='computer' onChange = {this.pickComputer} > 
+                  < option value = "Computer 1" > Pick a Computer ... </option>           
+                  < option value = "Computer 1" > Computer 1 </option> 
+                  < option value = "Computer 2" > Computer 2 </option> 
+                  < option value = "Computer 3" > Computer 3 </option> 
+                </select> 
+              </div><br/> 
+              <div>    
+                <h5 className ='datetimetitle'>Select a time:</h5>
+                <DatePicker
+                  className ='datetime'
+                  onChange={ this.pickDatetime }
+                  selected={ this.state.dateTime }                        
+                  showTimeSelect
+                  timeFormat="HH:mm"
+                  timeIntervals={30}
+                  timeCaption="time"
+                  dateFormat="MMM d, yyyy h:mm aa"
+                  minDate={new Date()}
+                  maxDate={addDays(new Date(), 1777)}
+                    />
+              </div>  
+              <textarea className="description" onChange={this.description} rows="5" placeholder="Brief description ..."></textarea>               
+              <div className = "Calendar-submit" >
+                <input type="submit" value="Submit"/>
+              </div>                
             </form>     
             
-            <iframe className = "col-12 col-sm-12 col-md-8" src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=America%2FEdmonton&amp;src=bWVnYW54dTc4OUBnbWFpbC5jb20&amp;color=%237986CB&amp;showTitle=0&amp;showDate=1&amp;showPrint=1&amp;showTabs=0&amp;mode=WEEK&amp;showCalendars=1" width="730" height="500" frameBorder="0" scrolling="no"></iframe>
+            <iframe className = "col-12 col-sm-12 col-md-8" src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=America%2FEdmonton&amp;src=bWVnYW54dTc4OUBnbWFpbC5jb20&amp;color=%237986CB&amp;showTitle=0&amp;showDate=1&amp;showPrint=1&amp;showTabs=0&amp;mode=WEEK&amp;showCalendars=1" width="900" height="800" frameBorder="0" scrolling="no"></iframe>
             </div> 
         </div>
         <Footer/>
-        </div> 
+      </div> 
         );
     }
 }
 export default Calendar;
-
-  
-// var ref = new Firebase("https://bu1691k7rvt.firebaseio-demo.com/");
-
-// ref.createUserWithEmail("johndoe@gmail.com", "thisismypassword", function(error, userData){        //creates a user
-//     if(error){
-//         console.log("Account creation failed: " + error);     //user creation unsuccessful
-//     } else{
-//         console.log("Account creation succeeded!");     //user creation successful
-
-//         ref.child('user').child(userData.uid).set({     //creates a child with the users firebase simplelogin
-//             user: true,                                 //ID and stores the user's information
-//             username: username,
-//             email: email,
-//             likes: {                //NOTE: It is highly reccomended that that user's password is not stored
-//                 1: "dogs",          //in the JSON tree as Firebase does this already
-//                 2: "pizza"
-//             }
-//         });
-
-//     }
-// });
-
-// ref.loginWithEmail("johndoe@gmail.com", "thisismypassword", true, function(authData){      //logs in a user
-//     var userRef = ref.child('user').child(authData.uid);      //access the users information from JSON tree
-//     userRef.once('value', function(snapshot){
-//         console.log(snapshot.val().username.val);      //prints out the users email which was stored in the JSON tree
-//     });
-
-// });
-
-
-//ref.logout();      //logs user out

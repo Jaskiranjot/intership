@@ -1,29 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
+import dbref from '../Firebaseref.js'
 
-import './Calendar.css';
-import db from "../firebase.js";
-
-class GetuserNameEmail extends React.Component{
+class GetuserNameEmail extends Component{
 constructor() {
   super();
   this.state = {
-    email: [],name:[]
+    email:[],name:[],position:[]
   };
 }
 async componentDidMount() {
   try {
     const email = [];
     const name=[];
-    var userkey ='Megan-Xu1601510866653'
-         db.collection('megantestfolder').doc(userkey)
-      .get()
-      .then((doc) => {
+    const position=[];
+
+    dbref().get().then((doc) => {      
         if (doc.exists) {
           const data = doc.data();
           email.push(data.email);
-          name.push(data.firstname+' '+data.lastname)
+          name.push(data.firstname+' '+data.lastname);
+          position.push(data.position);
         };
-        this.setState({email,name});
+        this.setState({email,name,position});
       });      
   } catch (error) {
     console.error(error);
@@ -32,8 +30,9 @@ async componentDidMount() {
 render() {
   return (
     <div>
-      <h5>Name: { this.state.name }</h5>
-     <h5>Email: { this.state.email }</h5>
+      <h6>Name: { this.state.name }</h6>
+      <h6>Position: { this.state.position }</h6>
+     <h6>Email: { this.state.email }</h6>
     </div>
   );
 }

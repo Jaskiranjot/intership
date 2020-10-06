@@ -1,111 +1,126 @@
-body{
-    background-color: cadetblue;
+:root {
+  --calendar-bg-color:  cadetblue;
+  --calendar-hover-color: #5F9EA0;
+  --calendar-boxinner-color: white;
+  --calendar-border-radius:8px;
+  --calendar-placeholder-color:#404040;
+}
+
+html, body {
+	height: 100%;
+  text-align: left;
+  margin: 0;
+}
+
+.calendar{
+    background-color: var(--calendar-bg-color);
     font-family: 'Poppins', sans-serif;
   }
-h2{
+.calendar h2{
     color:black;
     padding:10%;
 }
-
-
-select{
-    border-color: #92828D;
-    padding: 10px;
-    margin: 15px;
-    font-size: large;
+.calendar form{
+  direction: ltr;
 }
 
-.Calendar-submit input{
+.calendar select,
+.calendar .inputdata,
+.calendar .datetime{
+  display: block;
+  width: 80%;
+  max-width: 300px;
+  padding: 8px 38px;
+  margin: 5px 15px;
+  box-sizing: border-box;
+  border: none;
+  text-align: left;
+  border-radius: var(--calendar-border-radius);
+  background-color: white;
+  color: var(--calendar-placeholder-color);
+  text-align: center;
+
+}
+
+.calendar .Calendar-submit input{
     background:#92828D;
-    border-radius: 10px;
+    border-radius: var(--calendar-border-radius);
     border:#92828D;
     border:none;
+    width:150px;
     padding:8px 15px;
+    margin-bottom: 10%;
     font-size: large;
     font-weight: bold;
     cursor: pointer;
-    margin: 40px 30px 40px 150px;
-    /* height: 35px;
-    width: 160px;
-    font-size: 18px;
-    border-width: 1.5px;
-    padding: 0 50px 0 50px;
-    background-color: #91838C;
-    border: none;
-    outline: none;
-    color: white; */
 }
 
-  .selecttitle{    
-    margin: 0 0 15px 0;
-  }
+.calendar .Calendar-submit input:hover{
+  background:#92828D;
+  cursor: pointer;
+}
 
-  .datetimetitle{    
+.calendar .datetimetitle{    
     margin: 28px 0 5px 0;
-  }
-
-  
-  input[type=text] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: none;
-    border-radius: 15px;
-    background-color: rgb(255, 249, 249);
-    color: rgb(10, 10, 10);
-  }
-
-  
-  input[type=submit] {
-    background-color: #ddd;
-    border: none;
-    color: black;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 20px 0; 
-    /* cursor: pointer; */
-    border-radius: 16px;
-    cursor: pointer;
-    outline: none;
+    float: left;
+    margin:5px;
   }
   
-  select {
-    width: 230px;
-    padding: 8px 38px;
-    margin:  0;
-    box-sizing: border-box;
-    border: none;
-    border-radius: 15px;
-    background-color: white;
-    color: rgb(10, 10, 10);
-    text-align: center;
-
-  }
-  
-  input:hover, select:hover {
-    background-color: #5F9EA0;
+  .calendar input:hover,.inputdata:hover,select:hover,.description:hover {
+    background-color: var(--calendar-hover-color);
     opacity: .5;
     color:white;
+  }
+
+  .calendar input:active,.inputdata:active,.datetime:hover,select:active,.description:active {
+    background-color: var(--calendar-hover-color);
+    opacity: .5;
+    color:black;
   }
   .container{
     background-color: antiquewhite;
     border-style: hidden;
-    border-radius: 15px;
-    padding:18px;
-    margin: 50px;
+    border-radius: var(--calendar-border-radius);
+    padding:1rem;
+    margin:5em;
 
     text-align: center;
     box-shadow: 0 8px 6px -6px black;
   }
+
+
+  .calendar .description{
+    width:100%;
+    border:none;
+    margin:35px 15px;
+  }
+
+  .calendar ::placeholder {
+    color: var(--calendar-placeholder-color);
+    opacity: 1; /* Firefox */
+  }
+
   @media screen and (max-width:800px){
-  .container{
+    .calendar .container{
    width:100%;
   } 
-  inout, select {
-    width: 230px;
-    height:50px;
+  .calendar .datetimetitle{    
+    display:inline;
+    margin: 12px 22px;
+  }
+.calendar select,
+.calendar .inputdata, 
+.calendar .datetime{
+    width: 50%;
+    float:right;
+    margin-right: 25px;
+    display: block;
+  direction: ltr;
+  }
+
+  .calendar .description{
+    width:90%;
+    border:none;
+    margin:15px;
   }
 }

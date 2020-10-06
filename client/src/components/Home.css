@@ -1,0 +1,56 @@
+body{
+    background: url(./homepicture.PNG) no-repeat;
+    background-size: cover;
+    background-color:grey;
+    z-index:-5; 
+}
+
+.home{
+    background: #A9A9A9;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+/* .home.button{
+    float:right;
+} */
+
+.logout{
+    display:inline-block;
+    width:10vw;
+    position: absolute;
+    text-align: center;
+    margin-left: 65%;
+    padding-top: 23px;
+    font-size: larger;
+    font-weight: 400;
+    border:none;
+    outline: none !important;
+    box-shadow: none !important;
+    background:none;
+    color:blue;
+}
+.login{
+    display:inline-block;
+    width:auto;
+    position: absolute;
+    text-align: center;
+    justify-content: left;
+    margin-left: 950px;
+    padding-top: 13px;
+    border:none;
+    outline: none !important;
+    box-shadow: none !important;
+    color:blue;
+    font-size: larger;
+    font-weight: 700;
+    background:none;
+    outline:none;
+}
+
+button:hover {
+    color: aqua;
+    outline: none;
+}

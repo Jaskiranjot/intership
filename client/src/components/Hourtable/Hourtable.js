@@ -1,64 +1,64 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import GetuserNameEmail from '../Calendar/GetuserNameEmail'
-import {db} from "../firebase.js";
-import Navbar from '../Navbar/Navbar';
+import GetuserNameEmail from './GetuserNameEmail'
+import Navbar from '../Navbarinner/Navbarinner';
 import Footer from '../Footer/Footer';
-var userkey ='Megan-Xu1601510866653'
+import './Hourtable.css';
+import dbref from '../Firebaseref.js'
+
+//var userkey ='Megan-Xu1601510866653'
 class Hourtable extends React.Component{
   constructor(props){
-      super(props);
-      this.state = {hours:[{'SNo.':'', Date: '', Computer: '', Mentee: '','Mentor Time':'',"Mentee's Country":'', Description: ''}],totalhours:'' }
+    super(props);
+    this.state = {hours:[],totalhours:'' }
   }
- 
-renderTableData() {
-    var hours =[]
-db.collection('megantestfolder').doc(userkey).collection('Data')
-.get().then((Snapshot) => {
-  var totalhours =Snapshot.size/2
-  Snapshot.forEach((doc) => {
-    hours.push(doc.data())
-    console.log(hours)
-
-  })//snap
-  this.setState({hours,totalhours,})
-})
-           return     this.state.hours.map((hour, index) => {
-                  var {Computer,Mentee,MentorTime,MenteeCountry,Description} = hour;
-
-                  return( <tr key={index}>
-                     <td>{index}</td>
-                      <td>{`${hour.Datetime}`}</td>
-                      <td>{hour.Computer}</td>
-                      <td>{hour.Mentee}</td>
-                      <td>{hour.MentorTime}</td>                   
-                      <td>{hour.MenteeCountry}</td>
-                      <td>{hour.Description}</td>
-                   </tr>)
-                })
-             
- }
-
   renderTableHeader() {
-   let header = Object.keys(this.state.hours[0])
-  return header.map((key, index) => {
-     return <th key={index}>{key.toUpperCase()}</th>
+    let header = ['SNo.','Date','Computer_Use','Mentee','Mentor_Time','Mentee_Country','Description']
+    return header.map((key, index) => {
+      return <th key={index}>{key.toUpperCase()}</th>
+    })
+  }
+  renderTableData() {
+    var hours =[]
+    //db.collection('megantestfolder').doc(userkey)'asc' or 'desc'.
+    dbref().collection('VolunteerHours').get().then((Snapshot) => {
+      if (!Snapshot.empty) {
+        var totalhours =Snapshot.size/2
+        Snapshot.forEach((doc) => {
+          hours.push(doc.data())
+        })//snap
+      }else{
+          hours =[0]
+    }
+    this.setState({hours,totalhours,})
   })
- }
-render() {
+  return this.state.hours.map((hour, index) => {
+    var {Datetime,Computer,Mentee,MentorTime,MenteeCountry,Description} = hour;
+
+    return( 
+      <tr key={index}>
+        <td>{index}</td>
+        <td>{`${hour.Datetime}`}</td>
+        <td>{hour.Computer}</td>
+        <td>{hour.Mentee}</td>
+        <td>{hour.MentorTime}</td>                   
+        <td>{hour.MenteeCountry}</td>
+        <td>{hour.Description}</td>
+      </tr>)
+    })       
+  }
+
+  render() {
     return (            
-      <div>
-                   
+      <div class='hourtable'>                   
         <Navbar/>
-
-        <div className="">
+        <div className="table">
             <div className="header">            
-                <h3 > Hisory of Volunteering Hours </h3>
-
+                <h2 > Hisory of Volunteering Hours </h2>
             </div>
-            <div><GetuserNameEmail>Name: {this.state.name}</GetuserNameEmail><h5>Total Hours: {this.state.totalhours} </h5></div>
-            <table id="tableID" className="">                           
-                
+            <div><GetuserNameEmail className="userinfo"/>
+            <h5>Total Hours: {this.state.totalhours} </h5></div>
+            <table className="" id="tableID">                
                 <tbody>  
                 <tr>{this.renderTableHeader()}</tr>  
                 {this.renderTableData()}
@@ -66,8 +66,8 @@ render() {
             </table>
         </div>
         <Footer/>
-        </div> 
-        );
-    }
+      </div> 
+    );
+  }
 }
 export default Hourtable;
