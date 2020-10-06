@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import SignHeader from './SignHeader';
 import Footer from './Footer';
-import { auth, db } from "../firebase";
+import { auth, db } from "../../firebase";
 
 class Signin extends React.Component {
     constructor() {

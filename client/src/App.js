@@ -8,11 +8,11 @@ import Home from './components/Home';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 
-import Signin from './components/Signin';
-import ForgotPassword from './components/ForgotPassword';
-import ChangePassword from './components/ChangePassword';
+import Signin from './components/SignIn/Signin';
+import ForgotPassword from './components/SignIn/ForgotPassword';
+import ChangePassword from './components/SignIn/ChangePassword';
 import { UserContext } from "./providers/UserProvider";
-import MyProfile from './components/MyProfile';
+import MyProfile from './components/SignIn/MyProfile';
 
 // Note: this is an example of a function component, and if you're not familiar with these you can always turn this into a class.
 // The reverse is true as well, if you want to use function components instead of classes, that's totally fine.

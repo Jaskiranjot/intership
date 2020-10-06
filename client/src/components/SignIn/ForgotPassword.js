@@ -1,6 +1,6 @@
 import React,  { useState} from 'react';
 import {Link} from 'react-router-dom';
-import { auth } from '../firebase';
+import { auth } from '../../firebase';
 import SignHeader from './SignHeader';
 import Footer from './Footer';
 
@@ -24,12 +24,18 @@ const ForgotPassword = () => {
 
     const sendResetEmail = event => {
         event.preventDefault();
-        auth
-        .sendPasswordResetEmail(email)
+        // var actionCodeSettings = {
+        //     // After password reset, the user will be give the ability to go back
+        //     // to this page.
+        //     url: 'https://www.send-it-on.com/aboutus.html#',
+        //     handleCodeInApp: false
+        //   };
+
+        auth.sendPasswordResetEmail(email) //, actionCodeSettings)
         .then(() => {
             setEmailHasBeenSent(true);
-            setTimeout(() => {setEmailHasBeenSent(false)}, 3000);
-            })
+           
+          })
             .catch(() => {
                 setError("Error resetting password");
             });
@@ -42,9 +48,7 @@ const ForgotPassword = () => {
                 <h4>Enter your email and we will send you a link to reset your password</h4>
                 <div className="form-field">
                 {emailHasBeenSent && (
-                    <div>
-                    An email has been sent to you!
-                    </div>
+                      alert('An email has been sent to you!')
                 )}
                 {error !== null && (
                     <div>
@@ -62,7 +66,9 @@ const ForgotPassword = () => {
                 <div> 
                     <button onClick={event => {sendResetEmail(event)}}>{buttonText.text}</button>
                 </div> 
-                    <Link to='/signin'>Back to sign in</Link>
+                <div className='link'>
+                    <Link to='/signin' className='link'>Back to sign in</Link>
+                </div> 
                 </div>
                 <Footer />
          </div>)}

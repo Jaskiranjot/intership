@@ -73,6 +73,18 @@
     padding-top: 10px;
     font-size: 16px
 }
+.forgot-password .link {
+
+    color: black;
+    text-align: right;
+    padding: 10px 5px;
+
+    font-size: 18px
+}
+
+.forgot-password .link:hover {
+    color: blue;
+  }
 
 h4 {
     /* background-color: red; */
@@ -109,11 +121,6 @@ h4 {
     padding-bottom: 5px;
     padding-top: 10px;
     font-size: 16px
-}
-
-.back-to-sign-in {
-    background-color: yellow;
-
 }
 
 .user-not-found {
