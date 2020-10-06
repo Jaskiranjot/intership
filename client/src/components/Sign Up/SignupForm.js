@@ -43,7 +43,7 @@ updateInput = (event) => {
 handleSubmit = (event) => {
     const { password, confirmpassword } = this.state;
     if (password === confirmpassword) {
-        alert(`${this.state.firstname} ${this.state.lastname}, you have registered successfully!!`)
+        alert(`Thank you ${this.state.firstname} ${this.state.lastname}, you have registered successfully!!`)
         // window.location.href = "./SignupMessage.js";
         // window.location.replace("./SignupMessage.js");
         //should change the page to the SignupMessage page
@@ -65,15 +65,23 @@ handleSubmit = (event) => {
         event.preventDefault();
         //add the user's email and password to firebase authentication
         auth.createUserWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
+            //verify email address
+            let user = auth.currentUser;
+
+            user.sendEmailVerification().then(() => {
+                alert('Please check your email to verify your email address.')
+                console.log('Verify email has sent.')
+            }).catch("Email has not sent.");
+          
             console.log(u);
           }).catch((err) => {
             console.log(err);
           })
  
         //store the user's all data(user input) to firebase firestore
-        db.settings({
-            timestampsInSnapshots: true
-        });
+        // db.settings({
+        //     timestampsInSnapshots: true
+        // });
         //const userRef = db.collection("users").add({
         const userRef = db.collection("users").doc((this.state.firstname)+`-`+(this.state.lastname)+Date.now()).set({    
             firstname: this.state.firstname,
