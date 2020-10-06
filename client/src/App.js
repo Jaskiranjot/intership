@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
 } from 'react-router-dom';
-import Home from './components/Home';
+import Home from '../components/Home';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 
