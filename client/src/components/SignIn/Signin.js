@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import SignHeader from './SignHeader';
-import Footer from './Footer';
+import Footer from '../Footer';
 import { auth, db } from "../../firebase";
 
 class Signin extends React.Component {
@@ -14,7 +14,7 @@ class Signin extends React.Component {
         };
     }
 
-    updateInput = e => {
+    updateInput(e) {
         this.setState({[e.target.name]: e.target.value});
     }
 
@@ -30,8 +30,7 @@ class Signin extends React.Component {
             const email = this.state.email
             const password = this.state.password;
             event.preventDefault();
-            auth.signInWithEmailAndPassword(email, password).then((a, b, c) => {
-                debugger;
+            auth.signInWithEmailAndPassword(email, password).then(() => {
             }).catch(error => {
             setError("Error signing in with password and email!");
               console.error("Error signing in with password and email", error);
@@ -77,7 +76,7 @@ class Signin extends React.Component {
                         <button onClick = {(event) => {signInWithEmailAndPasswordHandler(event)}}>{buttonText.text}</button>
                     </div>  
                     <div id='create-account' className='link'>
-                        <Link to='create-account' className='link'>Create an account</Link>
+                        <Link to='signupform' className='link'>Create an account</Link>
                     </div> 
                 </div>
                 <Footer />  

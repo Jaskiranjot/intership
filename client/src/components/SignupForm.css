@@ -72,7 +72,7 @@ h1 {
 }
 
 /* all input form */
-input {
+.main input {
   position: relative;
   left: 25px;
   height: 35px;

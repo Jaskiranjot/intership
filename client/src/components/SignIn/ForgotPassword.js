@@ -2,7 +2,7 @@ import React,  { useState} from 'react';
 import {Link} from 'react-router-dom';
 import { auth } from '../../firebase';
 import SignHeader from './SignHeader';
-import Footer from './Footer';
+import Footer from '../Footer';
 
 
 const ForgotPassword = () => {

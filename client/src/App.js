@@ -13,7 +13,7 @@ import PublicRoute from './components/PublicRoute';
 import Signin from './components/SignIn/Signin';
 import ForgotPassword from './components/SignIn/ForgotPassword';
 import ChangePassword from './components/SignIn/ChangePassword';
-import { UserContext } from "./providers/UserProvider";
+import { UserContext } from './providers/UserProvider';
 import MyProfile from './components/SignIn/MyProfile';
 
 // Note: this is an example of a function component, and if you're not familiar with these you can always turn this into a class.
@@ -25,15 +25,15 @@ function App() {
   const [authenticated, setAuthenticated] = useState(false);
   const user = useContext(UserContext);
   return (
-     user ? <MyProfile /> :
     <Router>
       <Switch>
         <Route exact path="/" component={Home}></Route>
-        <Route path="/signin" component={Signin}></Route>
-        <Route path="/forgot-password" component={ForgotPassword}></Route>
-        <Route path="/change-password" component={ChangePassword}></Route>
+        <PrivateRoute authenticated={!!user} path="/profile" component={MyProfile}></PrivateRoute>
+        <PublicRoute authenticated={!!user} path="/signin" component={Signin}></PublicRoute>
+        <PublicRoute authenticated={!!user} path="/forgot-password" component={ForgotPassword}></PublicRoute>
+        <PublicRoute authenticated={!!user} path="/change-password" component={ChangePassword}></PublicRoute>
         {/* Uncomment these when you get a signup and login component in */}
-        <PublicRoute path="/signupform" component={SignupForm}></PublicRoute>
+        <PublicRoute authenticated={!!user} path="/signupform" component={SignupForm}></PublicRoute>
         <PublicRoute path="/signupmessage" component={SignupMessage}></PublicRoute>
         {/* <PublicRoute path="/login" authenticated={authenticated} component={Login}></PublicRoute> */}
         {/* This is an example of how to have your dashboard or profile or whatever only show if you're logged in */}

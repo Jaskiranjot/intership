@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import './SignupMessage.css'
+import React, {Component} from 'react';
+import './SignupMessage.css';
 
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -13,11 +13,11 @@ import './Footer.css';
 
 
 class SignupMessage extends Component {
-    
+
     render() {
         return (
-            <div>
-            <Navbar />
+            <div className="signup-msg">
+                <Navbar/>
 
                 <div class="message">
                     <h2>Thank you, you have signed up successfully!</h2>
@@ -28,9 +28,9 @@ class SignupMessage extends Component {
                     <h3>Go back to signin</h3>
                 </div>
 
-            <Footer />    
+                <Footer/>
             </div>
-            
+
         )
     }
 }
