@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ProfileN from '../components/Profile/ProfileN';
 import Hourtable from '../components/Hourtable/Hourtable';
 import HomeN from '../components/HomeN';
@@ -19,7 +19,8 @@ function App() {
       <div className=" ">
         <Switch>        
           <Route exact path="/">
-            <ProfileN />
+            {/* Replace with Iryna's Profile Component */}
+            <ProfileN /> 
           </Route>
           <Route path="/Calendar">
             <Calendar />
