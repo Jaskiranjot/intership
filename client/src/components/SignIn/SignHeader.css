@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+.NavbarItems {
+    background: #A9A9A9;
+    height: 80px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 1.2rem;
+ 
+}
+​
+.navbar-logo {
+    color: white;
+    margin-left: 20px;
+    cursor: pointer;
+    font-size: 40px;
+}

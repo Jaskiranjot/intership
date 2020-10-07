@@ -6,11 +6,12 @@ import { Route, Redirect } from 'react-router-dom';
  * If the user is logged in (authenticated is true) it redirects to Home.
  */
 function PublicRoute({ component: Component, authenticated, ...rest }) {
-
   return (
-    <Route {...rest} render={(props) => !authenticated
+    <Route
+      {...rest}
+      render={(props) => authenticated === false
         ? <Component {...props} />
-        : <Redirect to='/profile' />}
+        : <Redirect to='/home' />}
     />
   );
 }
