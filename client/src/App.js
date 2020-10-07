@@ -20,13 +20,12 @@ import MyProfile from './components/SignIn/MyProfile';
 
 function App() {
   // State to manage if the user is currently logged in or not.
-  const [authenticated, setAuthenticated] = useState(false);
   const user = useContext(UserContext);
   return ( 
     user ? <MyProfile /> :
       <Router>
         <Switch>
-          <Route exact path="/" component={Home}></Route>
+          <PrivateRoute exact path="/" component={MyProfile} authenticated={user}></PrivateRoute>
           <Route path="/signin" component={Signin}></Route>
           <Route path="/forgot-password" component={ForgotPassword}></Route>
           <Route path="/change-password" component={ChangePassword}></Route>
