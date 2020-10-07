@@ -14,7 +14,7 @@ class Signin extends React.Component {
         };
     }
 
-    updateInput(e) {
+    updateInput = e => {
         this.setState({[e.target.name]: e.target.value});
     }
 
