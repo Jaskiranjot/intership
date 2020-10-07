@@ -4,14 +4,14 @@ import {
   BrowserRouter as Router,
   Switch,
 } from 'react-router-dom';
-import Home from '../components/Home';
+import Home from './components/Home';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 
 import Signin from './components/SignIn/Signin';
 import ForgotPassword from './components/SignIn/ForgotPassword';
 import ChangePassword from './components/SignIn/ChangePassword';
-import { UserContext } from "./providers/UserProvider";
+import { UserContext } from './providers/UserProvider';
 import MyProfile from './components/SignIn/MyProfile';
 
 // Note: this is an example of a function component, and if you're not familiar with these you can always turn this into a class.
@@ -23,20 +23,20 @@ function App() {
   const [authenticated, setAuthenticated] = useState(false);
   const user = useContext(UserContext);
   return ( 
-     user ? <MyProfile /> :
-    <Router>
-      <Switch>
-            <Route exact path="/" component={Home}></Route>
-            <Route path="/signin" component={Signin}></Route>
-            <Route path="/forgot-password" component={ForgotPassword}></Route>
-            <Route path="/change-password" component={ChangePassword}></Route>
-            {/* Uncomment these when you get a signup and login component in */}
-            {/* <PublicRoute path="/signup" authenticated={authenticated} component={Signup}></PublicRoute>
+    user ? <MyProfile /> :
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home}></Route>
+          <Route path="/signin" component={Signin}></Route>
+          <Route path="/forgot-password" component={ForgotPassword}></Route>
+          <Route path="/change-password" component={ChangePassword}></Route>
+          {/* Uncomment these when you get a signup and login component in */}
+          {/* <PublicRoute path="/signup" authenticated={authenticated} component={Signup}></PublicRoute>
             <PublicRoute path="/login" authenticated={authenticated} component={Login}></PublicRoute> */}
-            {/* This is an example of how to have your dashboard or profile or whatever only show if you're logged in */}
-            {/* <PrivateRoute path="/dashboard" component={Dashboard} /> */}
-      </Switch>
-    </Router>
+          {/* This is an example of how to have your dashboard or profile or whatever only show if you're logged in */}
+          {/* <PrivateRoute path="/dashboard" component={Dashboard} /> */}
+        </Switch>
+      </Router>
   );
 }
 
